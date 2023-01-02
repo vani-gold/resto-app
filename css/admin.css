@@ -1,0 +1,110 @@
+/* 
+    Author: Vijay Thapa;
+    Theme: Restaurant Food Order;
+    version: 1.0;
+*/
+
+/* CSS for All */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper{
+    /* border:1px solid black; */
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+/* menu */
+.menu{
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+.menu ul{
+    list-style-type: none;
+}
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+.menu ul li a{
+ text-decoration: none;
+ font-weight: bold;
+ color: #ff4757;
+}
+/* main content */
+.main-content{
+    background-color:#f1f2f6;
+}
+.col-4{
+    width: 20%;
+    background-color: white;
+    margin: 2%;
+    padding: 2%;
+}
+.wrapper-main{
+    display: flex;
+    flex-direction: row;
+}
+/* table */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  .btn-primary{
+    background-color: rgb(75, 75, 204);
+    width: 90px;
+    border-radius: 12px;
+    /* height: 40px; */
+    margin-left: 10%;
+    padding: 10px;
+  }
+  input{
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+  }
+  .update{
+    background-color: green;
+  }
+
+  .danger{
+    background-color: #e91123;
+  }
+  .success{
+    color: rgb(27, 235, 8);
+  }
+  .error{
+    color: rgb(231, 9, 9);
+  }
+/* footer */
+.footer{
+    background-color: #ff4757;
+}
+
+/* css for login */
+.login{
+  border: 1px solid black;
+  width: 20%;
+  margin: 10% auto;
+  padding: 2%;
+}

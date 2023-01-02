@@ -17,8 +17,14 @@ This is a Restaurant Theme Website Template, designed using html and css. It was
 
 **Donate by wire transfer:** ✉️ E-Mail at *donate@vijaythapa.com* for wire transfer details. 
 
+food management
+https://www.youtube.com/watch?v=ZBgTzx46B8s&list=PLBLPjjQlnVXXBheMQrkv3UROskC0K1ctW
 
+blood donnor
+https://www.youtube.com/watch?v=Q_2iqNqXCUY
 
+nice
+https://www.youtube.com/watch?v=nW_E3-pYZqE
 ## Technologies Used
 1. HTML5
 2. CSS3
@@ -42,3 +48,52 @@ This is a Restaurant Theme Website Template, designed using html and css. It was
 2. Instagram - [@vijaythapa.code](https://www.instagram/vijaythapa.code/ "Vijay Thapa on Instagram")
 3. Facebook - [@thevijaythapa](https://www.facebook.com/thevijaythapa/ "Vijay Thapa on Facebook")
 5. Twitter - [@thevijaythapa](https://www.twitter.com/thevijaythapa "Vijay Thapa on Twitter")
+
+//////////////////////////////////////////////////
+
+            if($res==true)
+            {
+                $count=mysqli_num_rows($res);
+
+                if($count==1)
+                {
+                    if($new_password==$comfirm_password)
+                    {
+                        //update query
+                      $sql2 = "UPDATE tbl_admin SET 
+                        password='$new_password'
+                        WHERE id=$id
+                      ";
+                        $res2 = mysqli_query($conn, $res2);
+                        {
+                            // check if query is executed or not
+                            if($res2==true)
+                            {
+                                // Display sucess Message
+                                
+                                    $_SESSION['change-pwd'] = "<div class='success'>password changed successfully </div>";
+                                    header('location:'.SITEURL.'admin/manage-admin.php');
+                                
+                            }
+                            else
+                            {
+                                // Display error message
+                                 $_SESSION['change-pwd'] = "<div class='error'>failed to change password</div>";
+                                 header('location:'.SITEURL.'admin/manage-admin.php');
+                            }
+                        }
+                    }
+                   else
+                    {
+                        // redirect
+                        $_SESSION['pwd-not-match'] = "<div class='error'>password did not match </div>";
+                        header('location:'.SITEURL.'admin/manage-admin.php');
+                    }
+               
+                }
+                else
+                {
+                    $_SESSION['user-not-found'] = "<div class='error'>Userrrrr not found</div>";
+                    header('location:'.SITEURL.'admin/manage-admin.php');
+                }
+            }
