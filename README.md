@@ -50,50 +50,175 @@ https://www.youtube.com/watch?v=nW_E3-pYZqE
 5. Twitter - [@thevijaythapa](https://www.twitter.com/thevijaythapa "Vijay Thapa on Twitter")
 
 //////////////////////////////////////////////////
+<?php include('partials/menu.php');?>
+<div class="main-content">
+<div class="wrapper">
+    <h2>Add Category</h2>
+<br><br>
+<?php
+     if(isset($_SESSION['add']))
+     {
+        echo$_SESSION['add'];
+        unset($_SESSION['add']);
+     }
+    //  upload
+    if(isset($_SESSION['upload']))
+    {
+       echo$_SESSION['upload'];
+       unset($_SESSION['upload']);
+    }
+?>
+<form action="#" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title" placeholder="Enter Category title"></td>
+            </tr>
+            <tr>
+                <td>select Image</td>
+                <td>
+                    <input type="file" name="image">
+                </td>
+            </tr>
+            <tr>
+                <td>featured</td>
+                <td><input value="yes" type="radio" name="featured" placeholder="Add features">yes</td>
+                <td><input value="no" type="radio" name="featured" placeholder="Add features">no</td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Active</td>
+                <td><input value="yes" type="radio" name="active">yes</td>
+                <td><input value="no" type="radio" name="active">no</td>
+            </tr>
+            </tr>
 
-            if($res==true)
-            {
-                $count=mysqli_num_rows($res);
-
-                if($count==1)
-                {
-                    if($new_password==$comfirm_password)
-                    {
-                        //update query
-                      $sql2 = "UPDATE tbl_admin SET 
-                        password='$new_password'
-                        WHERE id=$id
-                      ";
-                        $res2 = mysqli_query($conn, $res2);
-                        {
-                            // check if query is executed or not
-                            if($res2==true)
-                            {
-                                // Display sucess Message
-                                
-                                    $_SESSION['change-pwd'] = "<div class='success'>password changed successfully </div>";
-                                    header('location:'.SITEURL.'admin/manage-admin.php');
-                                
-                            }
-                            else
-                            {
-                                // Display error message
-                                 $_SESSION['change-pwd'] = "<div class='error'>failed to change password</div>";
-                                 header('location:'.SITEURL.'admin/manage-admin.php');
-                            }
-                        }
-                    }
-                   else
-                    {
-                        // redirect
-                        $_SESSION['pwd-not-match'] = "<div class='error'>password did not match </div>";
-                        header('location:'.SITEURL.'admin/manage-admin.php');
-                    }
+            <tr>
+                <td colspan="2">
+                    <input class="btn-primary" type="submit" name="submit" value="add category">
+                </td>
                
+            </tr>
+        </table>
+
+        </form>
+
+        <?php
+            if(isset($_POST['submit']))
+            {
+                // echo clicked
+                // get values from the category form
+                $title = $_POST['title'];
+           
+                // for radio if an option is selected
+
+                if(isset($_POST['featured']))
+                {
+                    // get the value  from form
+                    $featured = $_POST['featured'];
                 }
                 else
                 {
-                    $_SESSION['user-not-found'] = "<div class='error'>Userrrrr not found</div>";
-                    header('location:'.SITEURL.'admin/manage-admin.php');
+                    // set the default value
+                    $featured = 'No';
                 }
+
+                if(isset($_POST['active']))
+                {
+                    $active = $_POST['active'];
+                }
+                else
+                {
+                    $active = 'No';
+                }
+                // check if image is selected or not
+                // print_r($_FILES['image']);
+            if (isset($_FILES['image']['name'])) {
+                // upload image
+                $image_name = $_FILES['image_name']['name'];
+                $source_path = $_FILES['image']['tmp_name'];
+                $destination_path = "../images/category/".$image_name;
+
+                //   upload image
+                $upload = move_uploaded_file($source_path, $destination_path);
+
+
+                //   check if the image is uploaded or not
+                if ($upload == false) {
+                    $_SESSION['upload'] = "<div class='success>Failed to upload image</div>";
+                    header('location:'.SITEURL.'admin/add-category.php');
+                    //   stop process
+                    die();
+                }      
+                } 
+                else {
+                    $image_name = "";
+                }
+          
+                //2 sql query to insert in to database
+                // $sql = "INSERT INTO tbl_category SET 
+                //     title='$title',
+                //     image_name='$image_name',
+                //     featured='$featured',
+                //     active='$active'
+                // ";
+$sql = "INSERT INTO tbl_category(title, image_name, featured, active) VALUES ('$title', '$image_name', '$featured', '$active')";
+                //3 execute the query and save in the database
+                $res = mysqli_query($conn, $sql);
+
+                //4 check whether the query is executed or not
+                if($res==true)
+                {
+                   
+                    // query Executed and category added
+                    $_SESSION['add'] = "<div class='success'>Category added successfully</div>";
+                    header('location:'.SITEURL.'admin/manage-category.php');
+                }
+                else
+                {
+                    // fail to add category
+                    $_SESSION['add'] = "<div class='error'>fail to add category</div>";
+                    header('location:'.SITEURL.'admin/add-category.php');
+                }
+               
             }
+          
+        ?>
+    </div>
+</div>
+
+<?php include('partials/footer.php');?>
+
+///////////////////////////////////////////////
+<?php include('partials/menu.php');?>
+<div class="main-content">
+<div class="wrapper">
+    <h2>Add Category</h2>
+<br><br>
+
+<form action="#" enctype="multipart/form-data" method="post">
+Select image :
+<input type="file" name="file"><br/>
+<input type="submit" value="Upload" name="Submit1"> <br/>
+
+<?php
+if(isset($_POST['Submit1']))
+{ 
+    $file = $_FILES['file']['name'];
+$filepath = "../images/category/" . $_FILES["file"]["name"];
+
+if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
+{
+echo "<img src=".$filepath." height=200 width=300 />";
+} 
+else 
+{
+echo "Error !!";
+}
+$sql = "INSERT INTO tbl_category(image_name) VALUES ('$file')";
+//                 //3 execute the query and save in the database
+//  $res = mysqli_query($conn, $sql);
+} 
+?>
+
+<?php include('partials/footer.php');?>
