@@ -30,14 +30,14 @@
             </tr>
             <tr>
                 <td>featured</td>
-                <td><input value="yes" type="radio" name="featured" placeholder="Add features">yes</td>
-                <td><input value="no" type="radio" name="featured" placeholder="Add features">no</td>
+                <td><input value="Yes" type="radio" name="featured" placeholder="Add features">Yes</td>
+                <td><input value="No" type="radio" name="featured" placeholder="Add features">No</td>
             </tr>
             <tr>
             <tr>
                 <td>Active</td>
-                <td><input value="yes" type="radio" name="active">yes</td>
-                <td><input value="no" type="radio" name="active">no</td>
+                <td><input value="Yes" type="radio" name="active">Yes</td>
+                <td><input value="No" type="radio" name="active">No</td>
             </tr>
             </tr>
 
@@ -84,28 +84,29 @@
             if (isset($_FILES['image']['name'])) {
                 // upload image
                 $image_name = $_FILES['image']['name'];
+                // if image is selected or not
+                if($image_name !="")
+                {
 // give a new name to each downloaded image (auto rename)
 // 1 get image extension
                 $ext = end(explode('.', $image_name));
                 // rename image
                 $image_name = "food_category_".rand(000, 999).'.'.$ext;
+               
+                    $source_path = $_FILES['image']['tmp_name'];
+                    $destination_path = "../images/category/".$image_name;
 
-
-                $source_path = $_FILES['image']['tmp_name'];
-                $destination_path = "../images/category/".$image_name;
-
-                //   upload image
-                $upload = move_uploaded_file($source_path, $destination_path);
-
-
-                //   check if the image is uploaded or not
-                if ($upload == false) {
-                    $_SESSION['upload'] = "<div class='success>Failed to upload image</div>";
-                    header('location:'.SITEURL.'admin/add-category.php');
-                    //   stop process
-                    die();
-                }      
-                } 
+                    //   upload image
+                    $upload = move_uploaded_file($source_path, $destination_path);
+                    //   check if the image is uploaded or not
+                    if ($upload == false) {
+                        $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
+                        header('location:'.SITEURL.'admin/add-category.php');
+                        //   stop process
+                        die();
+                    }  
+                }
+            }     
                 else {
                     $image_name = "";
                 }

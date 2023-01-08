@@ -19,6 +19,27 @@
         echo $_SESSION['delete'];
         unset($_SESSION['delete']);
     }
+    
+     // no-category-found
+     if (isset($_SESSION['no-category-found'])) {
+        echo $_SESSION['no-category-found'];
+        unset($_SESSION['no-category-found']);
+    }
+      // update
+      if (isset($_SESSION['update'])) {
+        echo $_SESSION['update'];
+        unset($_SESSION['update']);
+    }
+       // upload
+       if (isset($_SESSION['upload'])) {
+        echo $_SESSION['upload'];
+        unset($_SESSION['upload']);
+    }
+       // fail-remove
+       if (isset($_SESSION['failed-remove'])) {
+        echo $_SESSION['failed-remove'];
+        unset($_SESSION['failed-remove']);
+    }
     ?>
     <br>
     <p class="btn-primary"><a href="<?php echo SITEURL; ?>admin/add-category.php">Add Category</a></p>
@@ -80,7 +101,7 @@
                     <td><?php echo $featured; ?></td>
                     <td><?php echo $active; ?></td>
                     <td>
-                        <a class="update" href="">Update Category</a>
+                        <a class="update" href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>">Update Category</a>
                         <a class="danger" href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Delete Category</a>
                     </td>
                 </tr>
