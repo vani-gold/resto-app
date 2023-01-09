@@ -102,7 +102,8 @@
 
         </form>
         <?php
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) 
+    {
         // echo "clicked";
         // get all the values from the form
         $id = $_POST['id'];
@@ -113,7 +114,9 @@
 
         // 2 update the new image
         // check if image is selected or not
-        if (isset($_FILES['image']['name'])) {
+        if (isset($_FILES['image']['name'])) 
+        {
+            $image_name = $_FILES['image']['name'];
         // get image details
         if ($image_name != "") {
             // image available
@@ -132,7 +135,7 @@
 
             //   check if the image is uploaded or not
             if ($upload == false) {
-                $_SESSION['upload'] = "<div class='success'>Failed to upload image</div>";
+                $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
                 header('location:' . SITEURL . 'admin/manage-category.php');
                 //   stop process
                 die();
@@ -152,7 +155,8 @@
                 }
                 
             }
-        } else {
+        }
+        else {
             $image_name = $current_image;
         }
     } else {

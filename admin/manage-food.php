@@ -6,11 +6,36 @@
           <br><br>
           <p class="btn-primary"><a href="<?php echo SITEURL; ?>admin/add-food.php">Add Food</a></p>
           <?php 
+        //   add
           if(isset($_SESSION['add']))
             {
                 echo $_SESSION['add'];
                 unset ($_SESSION['add']);
             }
+            // delete
+            if(isset($_SESSION['delete']))
+            {
+                echo $_SESSION['delete'];
+                unset ($_SESSION['delete']);
+            }
+              // upload
+              if(isset($_SESSION['upload']))
+              {
+                  echo $_SESSION['upload'];
+                  unset ($_SESSION['upload']);
+              }
+            //   unauthorize
+              if(isset($_SESSION['unauthorize']))
+              {
+                  echo $_SESSION['unauthorize'];
+                  unset ($_SESSION['unauthorize']);
+              }
+                 //   update
+                 if(isset($_SESSION['update']))
+                 {
+                     echo $_SESSION['update'];
+                     unset ($_SESSION['update']);
+                 }
         ?>
        
     <div class="wrapper wrapper-main">
@@ -18,9 +43,10 @@
             <tr>
                 <th>S.N</th>
                 <th>Title</th>
+                <th>Description</th>
                 <th>Price</th>
                 <th>Image</th>
-                <th>Feature/th>
+                <th>Featured</th>
                 <th>Active</th>
             </tr>
             <?php
@@ -39,6 +65,7 @@
                     // get value of individual columns
                     $id = $row['id'];
                     $title = $row['title'];
+                    $description = $row['description'];
                     $price = $row['price'];
                     $image_name = $row['image_name'];
                     $featured = $row['featured'];
@@ -47,6 +74,7 @@
                         <tr>
                             <td><?php echo $sn++; ?></td>
                             <td><?php echo "$title"; ?></td>
+                            <td><?php echo "$description"; ?></td>
                             <td><?php echo "$price"; ?></td>
                             <td>
                             <?php 
@@ -72,8 +100,8 @@
                             <td><?php echo "$active"; ?></td>
                             <!-- <td>action</td> -->
                             <td>
-                                <a class="update" href="">Update food</a>
-                                <a class="danger" href="<?php echo SITEURL; ?>admin/delete-food.php?id<?php echo $id; ?>&<?php echo $image_name; ?>">Delete food</a>
+                                <a class="update" href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>">Update food</a>
+                                <a class="danger" href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Delete food</a>
                             </td>
                         </tr>
 
