@@ -10,6 +10,13 @@
     padding: 0 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+.error{
+    color: red;
+
+}
+.success{
+    color: green;
+}
 .container{
     width: 80%;
     margin: 0 auto;

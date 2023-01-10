@@ -84,7 +84,7 @@
                         <td><?php echo $username; ?></td>
                         <td>
                         <a class="update" href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">change password</a>
-                            <a class="update" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Update</a>
+                          
                             <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>"  class="danger" >delete </a>
                         </td>
                      </tr>
