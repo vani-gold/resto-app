@@ -50,8 +50,11 @@
 // check if the submit button is clicked or not
 if(isset($_POST['submit']))
 {
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    // $username = $_POST['username'];
+   
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+     $raw_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $raw_password);
 
     // 2 check if user and pwd exisit
     $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
