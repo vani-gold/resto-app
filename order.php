@@ -106,7 +106,7 @@ else
                      $price = $_POST['price'];
                      $qty = $_POST['qty'];
                      $total = $price * $qty; // total price =price * qty
-                     $order_date = date("m-d-y h:i:s"); //order date
+                    //  $order_date = date("m-d-y h:i:s"); //order date
                     $status = "Ordered";  //ordered, on delivery , Delivered , canceled;
                     $customer_name  = $_POST['full-name'];
                     $customer_contact  = $_POST['contact'];
@@ -119,7 +119,7 @@ else
                         price = $price,
                         qty = '$qty',
                         total = '$total',
-                        order_date = '$order_date',
+                        -- order_date = '$order_date',
                         status = '$status',
                         customer_name = '$customer_name',
                         customer_contact = '$customer_contact',

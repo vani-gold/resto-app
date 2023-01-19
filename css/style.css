@@ -139,11 +139,17 @@ fieldset{
 }
 
 .box-3{
-    width: 28%;
+    width: 20%;
     float: left;
     margin: 2%;
+    /* height: 100px; */
 }
-
+.black-hover{
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    z-index:10px;
+}
 
 /* CSS for Food Menu */
 .food-menu{
@@ -209,7 +215,7 @@ fieldset{
 
 
 
-/* CSS for Mobile Size or Smaller Screen */
+/* CSS for Mobile Sizebox or Smaller Screen */
 
 @media only screen and (max-width:768px){
     .logo{

@@ -64,7 +64,9 @@
                     }
                     else{
                        ?>
-                     <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name?>" alt="image" class="img-responsive img-curve">
+                   
+                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name?>" alt="image" class="img-responsive img-curve" width="15px" height="100px">
+         
                     <?php 
                     }
                      ?>
@@ -77,8 +79,10 @@
                             <?php echo $description; ?>
                             </p>
                             <br>
-
-                            <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                            <!-- <?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?> -->
+                             
+                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                          
                         </div>
                     </div>
 

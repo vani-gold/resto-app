@@ -42,7 +42,9 @@
     }
     ?>
     <br>
-    <p class="btn-primary"><a href="<?php echo SITEURL; ?>admin/add-category.php">Add Category</a></p>
+    <p class="btn-primary">
+        <a href="<?php echo SITEURL; ?>admin/add-category.php">Add Category</a>
+    </p>
     <div class="wrapper wrapper-main">
         <table>
             <tr>
@@ -56,7 +58,7 @@
             <?php
             // query
             $sql = "SELECT * FROM tbl_category";
-    // execute query
+             // execute query
             $res = mysqli_query($conn, $sql);
 
             $count = mysqli_num_rows($res);

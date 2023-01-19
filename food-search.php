@@ -70,8 +70,6 @@
                     </div>
                     </div>
                     <?php
-
-
                 }
 
             }
@@ -79,18 +77,9 @@
                 // food not available
             }
             ?>
-
-
-
-            <div class="clearfix"></div>
-
-            
-
+             <div class="clearfix"></div>
         </div>
 
     </section>
     <!-- fOOD Menu Section Ends Here -->
-
-   
-
     <?php include('partials-front/footer.php') ?>

@@ -22,10 +22,10 @@
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <h2 class="text-center">Categories</h2>
             <?php 
             // create sql to display category from database
-            $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+            $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 4";
             // execute the query
             $res = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($res);
@@ -50,23 +50,16 @@
                         else
                         {
                             ?>
-                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" width="200px" height="300px">
+                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" height="300px" >
                             <?php
                         }
-                        
-                        
+                    
                         ?>
-                       
-
-                        <h3 class="float-text text-white"><?php echo "$title"; ?></h3>
+                       <!-- float-text text-white -->
+                        <h3 class="" style="color: red;"><?php echo "$title"; ?></h3>
                     </div>
                 </a>
-
-
-
-
                     <?php
-
                 }
 
             }
@@ -75,9 +68,6 @@
                 // category not available 
                 echo "<div class='error'>Category not available</div>";
             }
-
-
-
             ?>
          
 
