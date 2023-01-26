@@ -98,15 +98,21 @@
     {
           // echo "clicked food";
         // 1 get the data from form
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $category = $_POST['category'];
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+        $description = mysqli_real_escape_string($conn, $_POST['description']);
+        $price = mysqli_real_escape_string($conn, $_POST['price']);
+        $category = mysqli_real_escape_string($conn, $_POST['category']);
+
+        // $title = $_POST['title'];
+        // $description = $_POST['description'];
+        // $price = $_POST['price'];
+        // $category = $_POST['category'];
        
     //   check if radio botton for featured is checked or not
         if (isset($_POST['featured'])) 
         {
-            $featured = $_POST['featured']; 
+            $featured = mysqli_real_escape_string($conn, $_POST['featured']);
+            // $featured = $_POST['featured']; 
         }
         else
         {
@@ -116,7 +122,8 @@
         //   check if radio botton for active is checked or not
         if (isset($_POST['active'])) 
         {
-            $active = $_POST['active']; 
+            $active = mysqli_real_escape_string($conn, $_POST['active']);
+            // $active = $_POST['active']; 
         }
         else
         {

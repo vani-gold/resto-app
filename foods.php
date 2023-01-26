@@ -11,10 +11,6 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
-
-
-
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
@@ -63,33 +59,19 @@
                     <?php echo $description ?>
                     </p>
                     <br>
-
-                    <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
                 <?php
-
-
             }
         }
         else
         {
             echo "no food to be displayed";
         }
-
-
         ?>
-
-
-          
             <div class="clearfix"></div>
-
-            
-
         </div>
-
     </section>
-  
- 
     <!-- social Section Ends Here -->
     <?php include('partials-front/footer.php') ?>

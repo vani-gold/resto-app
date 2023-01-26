@@ -15,8 +15,6 @@
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
 
-
-
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">

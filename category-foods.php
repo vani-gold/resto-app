@@ -16,9 +16,7 @@
     {
         header('location:' . SITEURL);
     }
-
     ?>
-
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
@@ -28,9 +26,6 @@
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
-
-
-
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
@@ -95,16 +90,8 @@
             }
 
             ?>
-          
-
-
             <div class="clearfix"></div>
-
-            
-
         </div>
 
     </section>
- 
-
     <?php include('partials-front/footer.php') ?>

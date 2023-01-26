@@ -59,9 +59,13 @@ if(isset($_POST['submit']))
 {
     // echo "Button clicked";
     // get all the valu from form to be updated
-    $_id = $_POST['id'];
-    $full_name= $_POST['full_name'];
-    $username = $_POST['username'];
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    
+    // $_id = $_POST['id'];
+    // $full_name= $_POST['full_name'];
+    // $username = $_POST['username'];
 
 
     // create a sql query to update admin

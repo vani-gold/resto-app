@@ -42,8 +42,18 @@
     // checkif button is clicked
         if(isset($_POST['submit']))
         {
+            
             // 1 get the data form
             $id=$_POST['id'];
+            $raw_password1 = md5($_POST['current_password']);
+            // $current_password = mysqli_real_escape_string($conn, $raw_password1);
+
+            // $raw_password2 = md5($_POST['new_password']);
+            // $new_password = mysqli_real_escape_string($conn, $raw_password2);
+
+            // $raw_password3 = md5($_POST['comfirm_password']);
+            // $comfirm_password = mysqli_real_escape_string($conn, $raw_password3);
+
             $current_password= md5($_POST['current_password']);
             $new_password = md5($_POST['new_password']);
             $comfirm_password = md5($_POST['comfirm_password']);

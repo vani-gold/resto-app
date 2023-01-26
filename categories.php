@@ -1,7 +1,4 @@
 <?php include('partials-front/menu.php') ?>
-
-
-
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
@@ -20,9 +17,7 @@
                     $id = $row['id'];
                     $title = $row['title'];
                     $image_name = $row['image_name'];
-
                     ?>
-
                     <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
                         <div class="box-3 float-container">
                             <?php 
@@ -53,11 +48,6 @@
                 echo "<div class='error'>Category not found</div>";
             }
             ?>
-
-
-            
-            
-
             <div class="clearfix"></div>
         </div>
     </section>

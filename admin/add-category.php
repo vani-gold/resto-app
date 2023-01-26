@@ -40,7 +40,6 @@
                 <td><input value="No" type="radio" name="active">No</td>
             </tr>
             </tr>
-
             <tr>
                 <td colspan="2">
                     <input class="btn-primary" type="submit" name="submit" value="add category">
@@ -56,14 +55,16 @@
             {
                 // echo clicked
                 // get values from the category form
-                $title = $_POST['title'];
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+                // $title = $_POST['title'];
            
                 // for radio if an option is selected
 
                 if(isset($_POST['featured']))
                 {
                     // get the value  from form
-                    $featured = $_POST['featured'];
+                    $featured = mysqli_real_escape_string($conn, $_POST['featured']);
+                    // $featured = $_POST['featured'];
                 }
                 else
                 {
@@ -73,7 +74,8 @@
 
                 if(isset($_POST['active']))
                 {
-                    $active = $_POST['active'];
+                    $active = mysqli_real_escape_string($conn, $_POST['active']);
+                    // $active = $_POST['active'];
                 }
                 else
                 {
@@ -118,7 +120,7 @@
                 //     featured='$featured',
                 //     active='$active'
                 // ";
-$sql = "INSERT INTO tbl_category(title, image_name, featured, active) VALUES ('$title', '$image_name', '$featured', '$active')";
+        $sql = "INSERT INTO tbl_category(title, image_name, featured, active) VALUES ('$title', '$image_name', '$featured', '$active')";
                 //3 execute the query and save in the database
                 $res = mysqli_query($conn, $sql);
 

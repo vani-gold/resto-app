@@ -50,9 +50,15 @@ if(isset($_POST['submit']))
 {
 
     //1 get data from form
-    $full_name = $_POST['full_name'];
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $raw_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $raw_password);
+
+
+    // $full_name = $_POST['full_name'];
+    // $username = $_POST['username'];
+    // $password = md5($_POST['password']);
 
     //2 sql query to save data in database
     $sql = "INSERT INTO tbl_admin SET

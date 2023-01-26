@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-    //3 Excecute Query and save Data into Database
+    // 3 Excecute Query and save Data into Database
     // define('SITEURL', 'http://localhost/resto_app/');
     // define('LOCALHOST', 'localhost');
     // define('DB_USERNAME', 'root');
